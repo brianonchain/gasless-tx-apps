@@ -1,0 +1,7 @@
+.appContainer1 {
+  @apply py-6 desktop:py-8 px-3 w-full min-h-screen flex justify-center;
+}
+
+.appContainer2 {
+  @apply w-full max-w-[400px] space-y-4;
+}

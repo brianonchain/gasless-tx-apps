@@ -1,0 +1,1085 @@
+{
+  "account": {
+    "client": {
+      "cacheTime": 4000,
+      "chain": {
+        "id": 137,
+        "name": "Polygon",
+        "nativeCurrency": {
+          "name": "POL",
+          "symbol": "POL",
+          "decimals": 18
+        },
+        "rpcUrls": {
+          "default": {
+            "http": ["https://polygon-rpc.com"]
+          }
+        },
+        "blockExplorers": {
+          "default": {
+            "name": "PolygonScan",
+            "url": "https://polygonscan.com",
+            "apiUrl": "https://api.polygonscan.com/api"
+          }
+        },
+        "contracts": {
+          "multicall3": {
+            "address": "0xca11bde05977b3631167028862be2a173976ca11",
+            "blockCreated": 25770160
+          }
+        }
+      },
+      "key": "public",
+      "name": "Public Client",
+      "pollingInterval": 4000,
+      "request": "async (args, overrideOptions = {})=>{\n        const { dedupe = false, methods, retryDelay = 150, retryCount = 3, uid } = {\n            ...options,\n            ...overrideOptions\n        };\n        const { method } = args;\n        if (methods?.exclude?.includes(method)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](new Error('method not supported'), {\n            method\n        });\n        if (methods?.include && !methods.include.includes(method)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](new Error('method not supported'), {\n            method\n        });\n        const requestId = dedupe ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$encoding$2f$toHex$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"stringToHex\"])(`${uid}.${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"stringify\"])(args)}`) : undefined;\n        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$withDedupe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"withDedupe\"])(()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$withRetry$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"withRetry\"])(async ()=>{\n                try {\n                    return await request(args);\n                } catch (err_) {\n                    const err = err_;\n                    switch(err.code){\n                        // -32700\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ParseRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ParseRpcError\"](err);\n                        // -32600\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidRequestRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidRequestRpcError\"](err);\n                        // -32601\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotFoundRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotFoundRpcError\"](err, {\n                                method: args.method\n                            });\n                        // -32602\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidParamsRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidParamsRpcError\"](err);\n                        // -32603\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InternalRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InternalRpcError\"](err);\n                        // -32000\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidInputRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidInputRpcError\"](err);\n                        // -32001\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceNotFoundRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceNotFoundRpcError\"](err);\n                        // -32002\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceUnavailableRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceUnavailableRpcError\"](err);\n                        // -32003\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"TransactionRejectedRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"TransactionRejectedRpcError\"](err);\n                        // -32004\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](err, {\n                                method: args.method\n                            });\n                        // -32005\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"LimitExceededRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"LimitExceededRpcError\"](err);\n                        // -32006\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"JsonRpcVersionUnsupportedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"JsonRpcVersionUnsupportedError\"](err);\n                        // 4001\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"](err);\n                        // 4100\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnauthorizedProviderError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnauthorizedProviderError\"](err);\n                        // 4200\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedProviderMethodError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedProviderMethodError\"](err);\n                        // 4900\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ProviderDisconnectedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ProviderDisconnectedError\"](err);\n                        // 4901\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ChainDisconnectedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ChainDisconnectedError\"](err);\n                        // 4902\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"SwitchChainError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"SwitchChainError\"](err);\n                        // 5700\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedNonOptionalCapabilityError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedNonOptionalCapabilityError\"](err);\n                        // 5710\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedChainIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedChainIdError\"](err);\n                        // 5720\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DuplicateIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DuplicateIdError\"](err);\n                        // 5730\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownBundleIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownBundleIdError\"](err);\n                        // 5740\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BundleTooLargeError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BundleTooLargeError\"](err);\n                        // 5750\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicReadyWalletRejectedUpgradeError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicReadyWalletRejectedUpgradeError\"](err);\n                        // 5760\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicityNotSupportedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicityNotSupportedError\"](err);\n                        // CAIP-25: User Rejected Error\n                        // https://docs.walletconnect.com/2.0/specs/clients/sign/error-codes#rejected-caip-25\n                        case 5000:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"](err);\n                        default:\n                            if (err_ instanceof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BaseError\"]) throw err_;\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownRpcError\"](err);\n                    }\n                }\n            }, {\n                delay: ({ count, error })=>{\n                    // If we find a Retry-After header, let's retry after the given time.\n                    if (error && error instanceof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"HttpRequestError\"]) {\n                        const retryAfter = error?.headers?.get('Retry-After');\n                        if (retryAfter?.match(/\\d/)) return Number.parseInt(retryAfter) * 1000;\n                    }\n                    // Otherwise, let's retry with an exponential backoff.\n                    return ~~(1 << count) * retryDelay;\n                },\n                retryCount,\n                shouldRetry: ({ error })=>shouldRetry(error)\n            }), {\n            enabled: dedupe,\n            id: requestId\n        });\n    }",
+      "transport": {
+        "key": "http",
+        "name": "HTTP JSON-RPC",
+        "request": "async request ({ method, params }) {\n                const body = {\n                    method,\n                    params\n                };\n                const { schedule } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$createBatchScheduler$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createBatchScheduler\"])({\n                    id: url_,\n                    wait,\n                    shouldSplitBatch (requests) {\n                        return requests.length > batchSize;\n                    },\n                    fn: (body)=>rpcClient.request({\n                            body\n                        }),\n                    sort: (a, b)=>a.id - b.id\n                });\n                const fn = async (body)=>batch ? schedule(body) : [\n                        await rpcClient.request({\n                            body\n                        })\n                    ];\n                const [{ error, result }] = await fn(body);\n                if (raw) return {\n                    error,\n                    result\n                };\n                if (error) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"RpcRequestError\"]({\n                    body,\n                    error,\n                    url: url_\n                });\n                return result;\n            }",
+        "retryCount": 3,
+        "retryDelay": 150,
+        "timeout": 10000,
+        "type": "http",
+        "url": "https://polygon-rpc.com"
+      },
+      "type": "publicClient",
+      "uid": "136b9222e81",
+      "extend": "(extendFn)=>{\n            const extended = extendFn(base);\n            for(const key in client)delete extended[key];\n            const combined = {\n                ...base,\n                ...extended\n            };\n            return Object.assign(combined, {\n                extend: extend(combined)\n            });\n        }",
+      "call": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$call$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"call\"])(client, args)",
+      "createAccessList": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$createAccessList$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createAccessList\"])(client, args)",
+      "createBlockFilter": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$createBlockFilter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createBlockFilter\"])(client)",
+      "createContractEventFilter": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$createContractEventFilter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createContractEventFilter\"])(client, args)",
+      "createEventFilter": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$createEventFilter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createEventFilter\"])(client, args)",
+      "createPendingTransactionFilter": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$createPendingTransactionFilter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createPendingTransactionFilter\"])(client)",
+      "estimateContractGas": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$estimateContractGas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"estimateContractGas\"])(client, args)",
+      "estimateGas": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$estimateGas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"estimateGas\"])(client, args)",
+      "getBalance": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getBalance$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getBalance\"])(client, args)",
+      "getBlobBaseFee": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getBlobBaseFee$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getBlobBaseFee\"])(client)",
+      "getBlock": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getBlock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getBlock\"])(client, args)",
+      "getBlockNumber": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getBlockNumber$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getBlockNumber\"])(client, args)",
+      "getBlockTransactionCount": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getBlockTransactionCount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getBlockTransactionCount\"])(client, args)",
+      "getBytecode": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getCode$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getCode\"])(client, args)",
+      "getChainId": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getChainId$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getChainId\"])(client)",
+      "getCode": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getCode$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getCode\"])(client, args)",
+      "getContractEvents": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getContractEvents$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getContractEvents\"])(client, args)",
+      "getEip712Domain": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getEip712Domain$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getEip712Domain\"])(client, args)",
+      "getEnsAddress": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$ens$2f$getEnsAddress$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getEnsAddress\"])(client, args)",
+      "getEnsAvatar": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$ens$2f$getEnsAvatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getEnsAvatar\"])(client, args)",
+      "getEnsName": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$ens$2f$getEnsName$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getEnsName\"])(client, args)",
+      "getEnsResolver": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$ens$2f$getEnsResolver$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getEnsResolver\"])(client, args)",
+      "getEnsText": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$ens$2f$getEnsText$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getEnsText\"])(client, args)",
+      "getFeeHistory": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getFeeHistory$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getFeeHistory\"])(client, args)",
+      "estimateFeesPerGas": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$estimateFeesPerGas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"estimateFeesPerGas\"])(client, args)",
+      "getFilterChanges": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getFilterChanges$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getFilterChanges\"])(client, args)",
+      "getFilterLogs": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getFilterLogs$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getFilterLogs\"])(client, args)",
+      "getGasPrice": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getGasPrice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getGasPrice\"])(client)",
+      "getLogs": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getLogs$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getLogs\"])(client, args)",
+      "getProof": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getProof$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getProof\"])(client, args)",
+      "estimateMaxPriorityFeePerGas": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$estimateMaxPriorityFeePerGas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"estimateMaxPriorityFeePerGas\"])(client, args)",
+      "getStorageAt": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getStorageAt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getStorageAt\"])(client, args)",
+      "getTransaction": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getTransaction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getTransaction\"])(client, args)",
+      "getTransactionConfirmations": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getTransactionConfirmations$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getTransactionConfirmations\"])(client, args)",
+      "getTransactionCount": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getTransactionCount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getTransactionCount\"])(client, args)",
+      "getTransactionReceipt": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getTransactionReceipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getTransactionReceipt\"])(client, args)",
+      "multicall": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$multicall$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"multicall\"])(client, args)",
+      "prepareTransactionRequest": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$wallet$2f$prepareTransactionRequest$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"prepareTransactionRequest\"])(client, args)",
+      "readContract": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$readContract$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"readContract\"])(client, args)",
+      "sendRawTransaction": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$wallet$2f$sendRawTransaction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"sendRawTransaction\"])(client, args)",
+      "simulate": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$simulateBlocks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"simulateBlocks\"])(client, args)",
+      "simulateBlocks": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$simulateBlocks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"simulateBlocks\"])(client, args)",
+      "simulateCalls": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$simulateCalls$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"simulateCalls\"])(client, args)",
+      "simulateContract": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$simulateContract$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"simulateContract\"])(client, args)",
+      "verifyMessage": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$verifyMessage$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"verifyMessage\"])(client, args)",
+      "verifySiweMessage": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$siwe$2f$verifySiweMessage$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"verifySiweMessage\"])(client, args)",
+      "verifyTypedData": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$verifyTypedData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"verifyTypedData\"])(client, args)",
+      "uninstallFilter": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$uninstallFilter$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"uninstallFilter\"])(client, args)",
+      "waitForTransactionReceipt": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$waitForTransactionReceipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"waitForTransactionReceipt\"])(client, args)",
+      "watchBlocks": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$watchBlocks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"watchBlocks\"])(client, args)",
+      "watchBlockNumber": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$watchBlockNumber$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"watchBlockNumber\"])(client, args)",
+      "watchContractEvent": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$watchContractEvent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"watchContractEvent\"])(client, args)",
+      "watchEvent": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$watchEvent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"watchEvent\"])(client, args)",
+      "watchPendingTransactions": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$watchPendingTransactions$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"watchPendingTransactions\"])(client, args)"
+    },
+    "entryPoint": {
+      "address": "0x0000000071727De22E5E9d8BAf0edAc6f37da032",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "name": "success",
+              "type": "bool"
+            },
+            {
+              "name": "ret",
+              "type": "bytes"
+            }
+          ],
+          "name": "DelegateAndRevert",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "name": "opIndex",
+              "type": "uint256"
+            },
+            {
+              "name": "reason",
+              "type": "string"
+            }
+          ],
+          "name": "FailedOp",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "name": "opIndex",
+              "type": "uint256"
+            },
+            {
+              "name": "reason",
+              "type": "string"
+            },
+            {
+              "name": "inner",
+              "type": "bytes"
+            }
+          ],
+          "name": "FailedOpWithRevert",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "name": "returnData",
+              "type": "bytes"
+            }
+          ],
+          "name": "PostOpReverted",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "ReentrancyGuardReentrantCall",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "name": "sender",
+              "type": "address"
+            }
+          ],
+          "name": "SenderAddressResult",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "name": "aggregator",
+              "type": "address"
+            }
+          ],
+          "name": "SignatureValidationFailed",
+          "type": "error"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "userOpHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "factory",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "paymaster",
+              "type": "address"
+            }
+          ],
+          "name": "AccountDeployed",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [],
+          "name": "BeforeExecution",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "totalDeposit",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposited",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "userOpHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "revertReason",
+              "type": "bytes"
+            }
+          ],
+          "name": "PostOpRevertReason",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "aggregator",
+              "type": "address"
+            }
+          ],
+          "name": "SignatureAggregatorChanged",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "totalStaked",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "unstakeDelaySec",
+              "type": "uint256"
+            }
+          ],
+          "name": "StakeLocked",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "withdrawTime",
+              "type": "uint256"
+            }
+          ],
+          "name": "StakeUnlocked",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "withdrawAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "StakeWithdrawn",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "userOpHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "paymaster",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "success",
+              "type": "bool"
+            },
+            {
+              "indexed": false,
+              "name": "actualGasCost",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "actualGasUsed",
+              "type": "uint256"
+            }
+          ],
+          "name": "UserOperationEvent",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "userOpHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "nonce",
+              "type": "uint256"
+            }
+          ],
+          "name": "UserOperationPrefundTooLow",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "userOpHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "revertReason",
+              "type": "bytes"
+            }
+          ],
+          "name": "UserOperationRevertReason",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "withdrawAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Withdrawn",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "name": "unstakeDelaySec",
+              "type": "uint32"
+            }
+          ],
+          "name": "addStake",
+          "outputs": [],
+          "stateMutability": "payable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "target",
+              "type": "address"
+            },
+            {
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "name": "delegateAndRevert",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "depositTo",
+          "outputs": [],
+          "stateMutability": "payable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "deposits",
+          "outputs": [
+            {
+              "name": "deposit",
+              "type": "uint256"
+            },
+            {
+              "name": "staked",
+              "type": "bool"
+            },
+            {
+              "name": "stake",
+              "type": "uint112"
+            },
+            {
+              "name": "unstakeDelaySec",
+              "type": "uint32"
+            },
+            {
+              "name": "withdrawTime",
+              "type": "uint48"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "getDepositInfo",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "name": "deposit",
+                  "type": "uint256"
+                },
+                {
+                  "name": "staked",
+                  "type": "bool"
+                },
+                {
+                  "name": "stake",
+                  "type": "uint112"
+                },
+                {
+                  "name": "unstakeDelaySec",
+                  "type": "uint32"
+                },
+                {
+                  "name": "withdrawTime",
+                  "type": "uint48"
+                }
+              ],
+              "name": "info",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "name": "key",
+              "type": "uint192"
+            }
+          ],
+          "name": "getNonce",
+          "outputs": [
+            {
+              "name": "nonce",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "initCode",
+              "type": "bytes"
+            }
+          ],
+          "name": "getSenderAddress",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "name": "sender",
+                  "type": "address"
+                },
+                {
+                  "name": "nonce",
+                  "type": "uint256"
+                },
+                {
+                  "name": "initCode",
+                  "type": "bytes"
+                },
+                {
+                  "name": "callData",
+                  "type": "bytes"
+                },
+                {
+                  "name": "accountGasLimits",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "preVerificationGas",
+                  "type": "uint256"
+                },
+                {
+                  "name": "gasFees",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "paymasterAndData",
+                  "type": "bytes"
+                },
+                {
+                  "name": "signature",
+                  "type": "bytes"
+                }
+              ],
+              "name": "userOp",
+              "type": "tuple"
+            }
+          ],
+          "name": "getUserOpHash",
+          "outputs": [
+            {
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "components": [
+                    {
+                      "name": "sender",
+                      "type": "address"
+                    },
+                    {
+                      "name": "nonce",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "initCode",
+                      "type": "bytes"
+                    },
+                    {
+                      "name": "callData",
+                      "type": "bytes"
+                    },
+                    {
+                      "name": "accountGasLimits",
+                      "type": "bytes32"
+                    },
+                    {
+                      "name": "preVerificationGas",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "gasFees",
+                      "type": "bytes32"
+                    },
+                    {
+                      "name": "paymasterAndData",
+                      "type": "bytes"
+                    },
+                    {
+                      "name": "signature",
+                      "type": "bytes"
+                    }
+                  ],
+                  "name": "userOps",
+                  "type": "tuple[]"
+                },
+                {
+                  "name": "aggregator",
+                  "type": "address"
+                },
+                {
+                  "name": "signature",
+                  "type": "bytes"
+                }
+              ],
+              "name": "opsPerAggregator",
+              "type": "tuple[]"
+            },
+            {
+              "name": "beneficiary",
+              "type": "address"
+            }
+          ],
+          "name": "handleAggregatedOps",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "name": "sender",
+                  "type": "address"
+                },
+                {
+                  "name": "nonce",
+                  "type": "uint256"
+                },
+                {
+                  "name": "initCode",
+                  "type": "bytes"
+                },
+                {
+                  "name": "callData",
+                  "type": "bytes"
+                },
+                {
+                  "name": "accountGasLimits",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "preVerificationGas",
+                  "type": "uint256"
+                },
+                {
+                  "name": "gasFees",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "paymasterAndData",
+                  "type": "bytes"
+                },
+                {
+                  "name": "signature",
+                  "type": "bytes"
+                }
+              ],
+              "name": "ops",
+              "type": "tuple[]"
+            },
+            {
+              "name": "beneficiary",
+              "type": "address"
+            }
+          ],
+          "name": "handleOps",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "key",
+              "type": "uint192"
+            }
+          ],
+          "name": "incrementNonce",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "callData",
+              "type": "bytes"
+            },
+            {
+              "components": [
+                {
+                  "components": [
+                    {
+                      "name": "sender",
+                      "type": "address"
+                    },
+                    {
+                      "name": "nonce",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "verificationGasLimit",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "callGasLimit",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "paymasterVerificationGasLimit",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "paymasterPostOpGasLimit",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "preVerificationGas",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "paymaster",
+                      "type": "address"
+                    },
+                    {
+                      "name": "maxFeePerGas",
+                      "type": "uint256"
+                    },
+                    {
+                      "name": "maxPriorityFeePerGas",
+                      "type": "uint256"
+                    }
+                  ],
+                  "name": "mUserOp",
+                  "type": "tuple"
+                },
+                {
+                  "name": "userOpHash",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "prefund",
+                  "type": "uint256"
+                },
+                {
+                  "name": "contextOffset",
+                  "type": "uint256"
+                },
+                {
+                  "name": "preOpGas",
+                  "type": "uint256"
+                }
+              ],
+              "name": "opInfo",
+              "type": "tuple"
+            },
+            {
+              "name": "context",
+              "type": "bytes"
+            }
+          ],
+          "name": "innerHandleOp",
+          "outputs": [
+            {
+              "name": "actualGasCost",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "",
+              "type": "address"
+            },
+            {
+              "name": "",
+              "type": "uint192"
+            }
+          ],
+          "name": "nonceSequenceNumber",
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "interfaceId",
+              "type": "bytes4"
+            }
+          ],
+          "name": "supportsInterface",
+          "outputs": [
+            {
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "unlockStake",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "withdrawAddress",
+              "type": "address"
+            }
+          ],
+          "name": "withdrawStake",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "name": "withdrawAddress",
+              "type": "address"
+            },
+            {
+              "name": "withdrawAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "withdrawTo",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "stateMutability": "payable",
+          "type": "receive"
+        }
+      ],
+      "version": "0.7"
+    },
+    "getFactoryArgs": "async getFactoryArgs () {\n            if ('isDeployed' in this && await this.isDeployed()) return {\n                factory: undefined,\n                factoryData: undefined\n            };\n            return implementation.getFactoryArgs();\n        }",
+    "getAddress": "async getAddress () {\n            return accountAddress;\n        }",
+    "encodeCalls": "async encodeCalls (calls) {\n            return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$encodeCallData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"encodeCallData\"])({\n                calls,\n                kernelVersion\n            });\n        }",
+    "decodeCalls": "async decodeCalls (callData) {\n            return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$decodeCallData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"decodeCallData\"])({\n                callData,\n                kernelVersion\n            });\n        }",
+    "getNonce": "async getNonce (parameters) {\n            const key = parameters?.key ?? BigInt(await nonceKeyManager.consume({\n                address,\n                chainId: implementation.client.chain.id,\n                client: implementation.client\n            }));\n            if (implementation.getNonce) return await implementation.getNonce({\n                ...parameters,\n                key\n            });\n            const nonce = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$readContract$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"readContract\"])(implementation.client, {\n                abi: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$abitype$40$1$2e$0$2e$8_typescript$40$5$2e$8$2e$3_zod$40$3$2e$25$2e$65$2f$node_modules$2f$abitype$2f$dist$2f$esm$2f$human$2d$readable$2f$parseAbi$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"parseAbi\"])([\n                    'function getNonce(address, uint192) pure returns (uint256)'\n                ]),\n                address: implementation.entryPoint.address,\n                functionName: 'getNonce',\n                args: [\n                    address,\n                    key\n                ]\n            });\n            return nonce;\n        }",
+    "getStubSignature": "async getStubSignature () {\n            if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$isKernelV2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"isKernelV2\"])(kernelVersion)) {\n                return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$concat$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"concatHex\"])([\n                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$constants$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ROOT_MODE_KERNEL_V2\"],\n                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$constants$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DUMMY_ECDSA_SIGNATURE\"]\n                ]);\n            }\n            if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$isWebAuthnAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"isWebAuthnAccount\"])(owner)) {\n                return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$abi$2f$encodeAbiParameters$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"encodeAbiParameters\"])([\n                    {\n                        name: \"authenticatorData\",\n                        type: \"bytes\"\n                    },\n                    {\n                        name: \"clientDataJSON\",\n                        type: \"string\"\n                    },\n                    {\n                        name: \"responseTypeLocation\",\n                        type: \"uint256\"\n                    },\n                    {\n                        name: \"r\",\n                        type: \"uint256\"\n                    },\n                    {\n                        name: \"s\",\n                        type: \"uint256\"\n                    },\n                    {\n                        name: \"usePrecompiled\",\n                        type: \"bool\"\n                    }\n                ], [\n                    \"0x49960de5880e8c687434170f6476605b8fe4aeb9a28632c7995cf3ba831d97631d00000000\",\n                    '{\"type\":\"webauthn.get\",\"challenge\":\"tbxXNFS9X_4Byr1cMwqKrIGB-_30a0QhZ6y7ucM0BOE\",\"origin\":\"http://localhost:3000\",\"crossOrigin\":false, \"other_keys_can_be_added_here\":\"do not compare clientDataJSON against a template. See https://goo.gl/yabPex\"}',\n                    1n,\n                    44941127272049826721201904734628716258498742255959991581049806490182030242267n,\n                    9910254599581058084911561569808925251374718953855182016200087235935345969636n,\n                    false\n                ]);\n            }\n            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$constants$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DUMMY_ECDSA_SIGNATURE\"];\n        }",
+    "sign": "async sign (parameters) {\n                const [{ factory, factoryData }, signature] = await Promise.all([\n                    this.getFactoryArgs(),\n                    implementation.sign(parameters)\n                ]);\n                if (factory && factoryData) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$signature$2f$serializeErc6492Signature$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"serializeErc6492Signature\"])({\n                    address: factory,\n                    data: factoryData,\n                    signature\n                });\n                return signature;\n            }",
+    "signMessage": "async signMessage (parameters) {\n            const [{ factory, factoryData }, signature] = await Promise.all([\n                this.getFactoryArgs(),\n                implementation.signMessage(parameters)\n            ]);\n            if (factory && factoryData && factory !== '0x7702') return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$signature$2f$serializeErc6492Signature$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"serializeErc6492Signature\"])({\n                address: factory,\n                data: factoryData,\n                signature\n            });\n            return signature;\n        }",
+    "signTypedData": "async signTypedData (parameters) {\n            const [{ factory, factoryData }, signature] = await Promise.all([\n                this.getFactoryArgs(),\n                implementation.signTypedData(parameters)\n            ]);\n            if (factory && factoryData && factory !== '0x7702') return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$signature$2f$serializeErc6492Signature$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"serializeErc6492Signature\"])({\n                address: factory,\n                data: factoryData,\n                signature\n            });\n            return signature;\n        }",
+    "signUserOperation": "async signUserOperation (parameters) {\n            const { chainId = await getMemoizedChainId(), ...userOperation } = parameters;\n            const hash = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$utils$2f$userOperation$2f$getUserOperationHash$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperationHash\"])({\n                userOperation: {\n                    ...userOperation,\n                    sender: userOperation.sender ?? await this.getAddress(),\n                    signature: \"0x\"\n                },\n                entryPointAddress: entryPoint.address,\n                entryPointVersion: entryPoint.version,\n                chainId: chainId\n            });\n            const signature = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$isWebAuthnAccount$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"isWebAuthnAccount\"])(owner) ? await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$signMessage$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"signMessage\"])({\n                owner,\n                message: {\n                    raw: hash\n                },\n                chainId,\n                accountAddress: await this.getAddress(),\n                kernelVersion\n            }) : await owner.signMessage({\n                message: {\n                    raw: hash\n                }\n            });\n            // Always use the sudo mode, since we will use external paymaster\n            if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$accounts$2f$kernel$2f$utils$2f$isKernelV2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"isKernelV2\"])(kernelVersion)) {\n                return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$data$2f$concat$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"concatHex\"])([\n                    \"0x00000000\",\n                    signature\n                ]);\n            }\n            return signature;\n        }",
+    "address": "0xb3D5dC30C3e264Aceb26e4f4cd3558c6C698B85B",
+    "isDeployed": "async isDeployed () {\n            if (deployed) return true;\n            const code = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$getAction$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getAction\"])(implementation.client, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getCode$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getCode\"], 'getCode')({\n                address\n            });\n            deployed = Boolean(code);\n            return deployed;\n        }",
+    "type": "smart"
+  },
+  "cacheTime": 4000,
+  "chain": {
+    "id": 137,
+    "name": "Polygon",
+    "nativeCurrency": {
+      "name": "POL",
+      "symbol": "POL",
+      "decimals": 18
+    },
+    "rpcUrls": {
+      "default": {
+        "http": ["https://polygon-rpc.com"]
+      },
+      "privy": {
+        "http": ["https://polygon-mainnet.rpc.privy.systems"]
+      }
+    },
+    "blockExplorers": {
+      "default": {
+        "name": "PolygonScan",
+        "url": "https://polygonscan.com",
+        "apiUrl": "https://api.polygonscan.com/api"
+      }
+    },
+    "contracts": {
+      "multicall3": {
+        "address": "0xca11bde05977b3631167028862be2a173976ca11",
+        "blockCreated": 25770160
+      }
+    }
+  },
+  "key": "bundler",
+  "name": "Bundler Client",
+  "pollingInterval": 4000,
+  "request": "async (args, overrideOptions = {})=>{\n        const { dedupe = false, methods, retryDelay = 150, retryCount = 3, uid } = {\n            ...options,\n            ...overrideOptions\n        };\n        const { method } = args;\n        if (methods?.exclude?.includes(method)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](new Error('method not supported'), {\n            method\n        });\n        if (methods?.include && !methods.include.includes(method)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](new Error('method not supported'), {\n            method\n        });\n        const requestId = dedupe ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$encoding$2f$toHex$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"stringToHex\"])(`${uid}.${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"stringify\"])(args)}`) : undefined;\n        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$withDedupe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"withDedupe\"])(()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$withRetry$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"withRetry\"])(async ()=>{\n                try {\n                    return await request(args);\n                } catch (err_) {\n                    const err = err_;\n                    switch(err.code){\n                        // -32700\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ParseRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ParseRpcError\"](err);\n                        // -32600\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidRequestRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidRequestRpcError\"](err);\n                        // -32601\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotFoundRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotFoundRpcError\"](err, {\n                                method: args.method\n                            });\n                        // -32602\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidParamsRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidParamsRpcError\"](err);\n                        // -32603\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InternalRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InternalRpcError\"](err);\n                        // -32000\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidInputRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidInputRpcError\"](err);\n                        // -32001\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceNotFoundRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceNotFoundRpcError\"](err);\n                        // -32002\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceUnavailableRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceUnavailableRpcError\"](err);\n                        // -32003\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"TransactionRejectedRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"TransactionRejectedRpcError\"](err);\n                        // -32004\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](err, {\n                                method: args.method\n                            });\n                        // -32005\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"LimitExceededRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"LimitExceededRpcError\"](err);\n                        // -32006\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"JsonRpcVersionUnsupportedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"JsonRpcVersionUnsupportedError\"](err);\n                        // 4001\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"](err);\n                        // 4100\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnauthorizedProviderError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnauthorizedProviderError\"](err);\n                        // 4200\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedProviderMethodError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedProviderMethodError\"](err);\n                        // 4900\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ProviderDisconnectedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ProviderDisconnectedError\"](err);\n                        // 4901\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ChainDisconnectedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ChainDisconnectedError\"](err);\n                        // 4902\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"SwitchChainError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"SwitchChainError\"](err);\n                        // 5700\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedNonOptionalCapabilityError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedNonOptionalCapabilityError\"](err);\n                        // 5710\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedChainIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedChainIdError\"](err);\n                        // 5720\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DuplicateIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DuplicateIdError\"](err);\n                        // 5730\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownBundleIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownBundleIdError\"](err);\n                        // 5740\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BundleTooLargeError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BundleTooLargeError\"](err);\n                        // 5750\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicReadyWalletRejectedUpgradeError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicReadyWalletRejectedUpgradeError\"](err);\n                        // 5760\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicityNotSupportedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicityNotSupportedError\"](err);\n                        // CAIP-25: User Rejected Error\n                        // https://docs.walletconnect.com/2.0/specs/clients/sign/error-codes#rejected-caip-25\n                        case 5000:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"](err);\n                        default:\n                            if (err_ instanceof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BaseError\"]) throw err_;\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownRpcError\"](err);\n                    }\n                }\n            }, {\n                delay: ({ count, error })=>{\n                    // If we find a Retry-After header, let's retry after the given time.\n                    if (error && error instanceof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"HttpRequestError\"]) {\n                        const retryAfter = error?.headers?.get('Retry-After');\n                        if (retryAfter?.match(/\\d/)) return Number.parseInt(retryAfter) * 1000;\n                    }\n                    // Otherwise, let's retry with an exponential backoff.\n                    return ~~(1 << count) * retryDelay;\n                },\n                retryCount,\n                shouldRetry: ({ error })=>shouldRetry(error)\n            }), {\n            enabled: dedupe,\n            id: requestId\n        });\n    }",
+  "transport": {
+    "key": "http",
+    "name": "HTTP JSON-RPC",
+    "request": "async request ({ method, params }) {\n                const body = {\n                    method,\n                    params\n                };\n                const { schedule } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$createBatchScheduler$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createBatchScheduler\"])({\n                    id: url_,\n                    wait,\n                    shouldSplitBatch (requests) {\n                        return requests.length > batchSize;\n                    },\n                    fn: (body)=>rpcClient.request({\n                            body\n                        }),\n                    sort: (a, b)=>a.id - b.id\n                });\n                const fn = async (body)=>batch ? schedule(body) : [\n                        await rpcClient.request({\n                            body\n                        })\n                    ];\n                const [{ error, result }] = await fn(body);\n                if (raw) return {\n                    error,\n                    result\n                };\n                if (error) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"RpcRequestError\"]({\n                    body,\n                    error,\n                    url: url_\n                });\n                return result;\n            }",
+    "retryCount": 3,
+    "retryDelay": 150,
+    "timeout": 10000,
+    "type": "http",
+    "url": "https://api.pimlico.io/v2/137/rpc?apikey=pim_k9MW53tzdbW36SYdZ4Wbnd"
+  },
+  "type": "bundlerClient",
+  "uid": "e817b0f16f3",
+  "extend": "(extendFn)=>{\n            const extended = extendFn(base);\n            for(const key in client)delete extended[key];\n            const combined = {\n                ...base,\n                ...extended\n            };\n            return Object.assign(combined, {\n                extend: extend(combined)\n            });\n        }",
+  "paymaster": {
+    "cacheTime": 4000,
+    "key": "public",
+    "name": "Pimlico Bundler Client",
+    "pollingInterval": 4000,
+    "request": "async (args, overrideOptions = {})=>{\n        const { dedupe = false, methods, retryDelay = 150, retryCount = 3, uid } = {\n            ...options,\n            ...overrideOptions\n        };\n        const { method } = args;\n        if (methods?.exclude?.includes(method)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](new Error('method not supported'), {\n            method\n        });\n        if (methods?.include && !methods.include.includes(method)) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](new Error('method not supported'), {\n            method\n        });\n        const requestId = dedupe ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$encoding$2f$toHex$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"stringToHex\"])(`${uid}.${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$stringify$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"stringify\"])(args)}`) : undefined;\n        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$withDedupe$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"withDedupe\"])(()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$withRetry$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"withRetry\"])(async ()=>{\n                try {\n                    return await request(args);\n                } catch (err_) {\n                    const err = err_;\n                    switch(err.code){\n                        // -32700\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ParseRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ParseRpcError\"](err);\n                        // -32600\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidRequestRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidRequestRpcError\"](err);\n                        // -32601\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotFoundRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotFoundRpcError\"](err, {\n                                method: args.method\n                            });\n                        // -32602\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidParamsRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidParamsRpcError\"](err);\n                        // -32603\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InternalRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InternalRpcError\"](err);\n                        // -32000\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidInputRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"InvalidInputRpcError\"](err);\n                        // -32001\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceNotFoundRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceNotFoundRpcError\"](err);\n                        // -32002\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceUnavailableRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ResourceUnavailableRpcError\"](err);\n                        // -32003\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"TransactionRejectedRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"TransactionRejectedRpcError\"](err);\n                        // -32004\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"MethodNotSupportedRpcError\"](err, {\n                                method: args.method\n                            });\n                        // -32005\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"LimitExceededRpcError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"LimitExceededRpcError\"](err);\n                        // -32006\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"JsonRpcVersionUnsupportedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"JsonRpcVersionUnsupportedError\"](err);\n                        // 4001\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"](err);\n                        // 4100\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnauthorizedProviderError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnauthorizedProviderError\"](err);\n                        // 4200\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedProviderMethodError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedProviderMethodError\"](err);\n                        // 4900\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ProviderDisconnectedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ProviderDisconnectedError\"](err);\n                        // 4901\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ChainDisconnectedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"ChainDisconnectedError\"](err);\n                        // 4902\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"SwitchChainError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"SwitchChainError\"](err);\n                        // 5700\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedNonOptionalCapabilityError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedNonOptionalCapabilityError\"](err);\n                        // 5710\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedChainIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnsupportedChainIdError\"](err);\n                        // 5720\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DuplicateIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"DuplicateIdError\"](err);\n                        // 5730\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownBundleIdError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownBundleIdError\"](err);\n                        // 5740\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BundleTooLargeError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BundleTooLargeError\"](err);\n                        // 5750\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicReadyWalletRejectedUpgradeError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicReadyWalletRejectedUpgradeError\"](err);\n                        // 5760\n                        case __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicityNotSupportedError\"].code:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"AtomicityNotSupportedError\"](err);\n                        // CAIP-25: User Rejected Error\n                        // https://docs.walletconnect.com/2.0/specs/clients/sign/error-codes#rejected-caip-25\n                        case 5000:\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UserRejectedRequestError\"](err);\n                        default:\n                            if (err_ instanceof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$base$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"BaseError\"]) throw err_;\n                            throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$rpc$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"UnknownRpcError\"](err);\n                    }\n                }\n            }, {\n                delay: ({ count, error })=>{\n                    // If we find a Retry-After header, let's retry after the given time.\n                    if (error && error instanceof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"HttpRequestError\"]) {\n                        const retryAfter = error?.headers?.get('Retry-After');\n                        if (retryAfter?.match(/\\d/)) return Number.parseInt(retryAfter) * 1000;\n                    }\n                    // Otherwise, let's retry with an exponential backoff.\n                    return ~~(1 << count) * retryDelay;\n                },\n                retryCount,\n                shouldRetry: ({ error })=>shouldRetry(error)\n            }), {\n            enabled: dedupe,\n            id: requestId\n        });\n    }",
+    "transport": {
+      "key": "http",
+      "name": "HTTP JSON-RPC",
+      "request": "async request ({ method, params }) {\n                const body = {\n                    method,\n                    params\n                };\n                const { schedule } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$utils$2f$promise$2f$createBatchScheduler$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"createBatchScheduler\"])({\n                    id: url_,\n                    wait,\n                    shouldSplitBatch (requests) {\n                        return requests.length > batchSize;\n                    },\n                    fn: (body)=>rpcClient.request({\n                            body\n                        }),\n                    sort: (a, b)=>a.id - b.id\n                });\n                const fn = async (body)=>batch ? schedule(body) : [\n                        await rpcClient.request({\n                            body\n                        })\n                    ];\n                const [{ error, result }] = await fn(body);\n                if (raw) return {\n                    error,\n                    result\n                };\n                if (error) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$errors$2f$request$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"RpcRequestError\"]({\n                    body,\n                    error,\n                    url: url_\n                });\n                return result;\n            }",
+      "retryCount": 3,
+      "retryDelay": 150,
+      "timeout": 10000,
+      "type": "http",
+      "url": "https://api.pimlico.io/v2/137/rpc?apikey=pim_k9MW53tzdbW36SYdZ4Wbnd"
+    },
+    "type": "pimlicoClient",
+    "uid": "22e817b0f16",
+    "extend": "(extendFn)=>{\n            const extended = extendFn(base);\n            for(const key in client)delete extended[key];\n            const combined = {\n                ...base,\n                ...extended\n            };\n            return Object.assign(combined, {\n                extend: extend(combined)\n            });\n        }",
+    "estimateUserOperationGas": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$estimateUserOperationGas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"estimateUserOperationGas\"])(client, parameters)",
+    "getChainId": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$actions$2f$public$2f$getChainId$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getChainId\"])(client)",
+    "getSupportedEntryPoints": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$getSupportedEntryPoints$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getSupportedEntryPoints\"])(client)",
+    "getUserOperation": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$getUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperation\"])(client, parameters)",
+    "getUserOperationReceipt": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$getUserOperationReceipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperationReceipt\"])(client, parameters)",
+    "prepareUserOperation": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$prepareUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"prepareUserOperation\"])(client, parameters)",
+    "sendUserOperation": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$sendUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"sendUserOperation\"])(client, parameters)",
+    "waitForUserOperationReceipt": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$waitForUserOperationReceipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"waitForUserOperationReceipt\"])(client, parameters)",
+    "getPaymasterData": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$paymaster$2f$getPaymasterData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getPaymasterData\"])(client, parameters)",
+    "getPaymasterStubData": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$paymaster$2f$getPaymasterStubData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getPaymasterStubData\"])(client, parameters)",
+    "getUserOperationGasPrice": "async ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$pimlico$2f$getUserOperationGasPrice$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperationGasPrice\"])(client)",
+    "getUserOperationStatus": "async (args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$pimlico$2f$getUserOperationStatus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperationStatus\"])(client, args)",
+    "sendCompressedUserOperation": "async (args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$pimlico$2f$sendCompressedUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"sendCompressedUserOperation\"])(client, {\n                    ...args,\n                    entryPointAddress: entryPoint.address\n                })",
+    "sponsorUserOperation": "async (args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$pimlico$2f$sponsorUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"sponsorUserOperation\"])(client, {\n                    ...args,\n                    entryPoint\n                })",
+    "validateSponsorshipPolicies": "async (args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$pimlico$2f$validateSponsorshipPolicies$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"validateSponsorshipPolicies\"])(client, {\n                    ...args,\n                    entryPointAddress: entryPoint.address\n                })",
+    "getTokenQuotes": "async (args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$pimlico$2f$getTokenQuotes$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getTokenQuotes\"])(client, {\n                    ...args,\n                    chain: args.chain,\n                    entryPointAddress: entryPoint.address\n                })"
+  },
+  "userOperation": {
+    "estimateFeesPerGas": "async ()=>{\n                    if ([\n                        \"public.pimlico.io\",\n                        \"api.pimlico.io\"\n                    ].some((e)=>i.includes(e))) return await c.getUserOperationGasPrice().then((e)=>e.fast);\n                    if ([\n                        \"rpc.zerodev.app\"\n                    ].some((e)=>i.includes(e))) return (await c.request({\n                        method: \"zd_getUserOperationGasPrice\",\n                        params: []\n                    })).fast;\n                    if ([\n                        \"g.alchemy.com\"\n                    ].some((e)=>i.includes(e))) {\n                        let [e, t] = await Promise.all([\n                            a.getBlock({\n                                blockTag: \"latest\"\n                            }),\n                            c.request({\n                                method: \"rundler_maxPriorityFeePerGas\",\n                                params: []\n                            })\n                        ]);\n                        if (!e.baseFeePerGas || !t) throw Error(\"Failed to get block or maxPriorityFeePerGasEstimate\");\n                        return {\n                            maxFeePerGas: 150n * e.baseFeePerGas / 100n + BigInt(t.toString()),\n                            maxPriorityFeePerGas: BigInt(t.toString())\n                        };\n                    }\n                    {\n                        let e = await a.estimateFeesPerGas(), t = i.includes(\"api.developer.coinbase.com\") ? 175n : 150n;\n                        return {\n                            ...e,\n                            maxFeePerGas: e.maxFeePerGas * t / 100n,\n                            maxPriorityFeePerGas: e.maxPriorityFeePerGas * t / 100n\n                        };\n                    }\n                }"
+  },
+  "estimateUserOperationGas": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$estimateUserOperationGas$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"estimateUserOperationGas\"])(client, parameters)",
+  "getChainId": "async ()=>C.current",
+  "getSupportedEntryPoints": "()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$getSupportedEntryPoints$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getSupportedEntryPoints\"])(client)",
+  "getUserOperation": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$getUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperation\"])(client, parameters)",
+  "getUserOperationReceipt": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$getUserOperationReceipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"getUserOperationReceipt\"])(client, parameters)",
+  "prepareUserOperation": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$prepareUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"prepareUserOperation\"])(client, parameters)",
+  "sendUserOperation": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$sendUserOperation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"sendUserOperation\"])(client, parameters)",
+  "waitForUserOperationReceipt": "(parameters)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$viem$40$2$2e$31$2e$0_bufferutil$40$4$2e$0$2e$_de382f69efc66df085db586e66d76501$2f$node_modules$2f$viem$2f$_esm$2f$account$2d$abstraction$2f$actions$2f$bundler$2f$waitForUserOperationReceipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"waitForUserOperationReceipt\"])(client, parameters)",
+  "sendTransaction": "async (e, t)=>{\n                    let r = T.current[C.current];\n                    if (!r) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$internal$2d$context$2d$pX7RZwl3$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"P\"](`Smart wallet client for chain (eip155:${C.current}) not found`);\n                    if (delete e.account, v({\n                        showWalletUIs: t?.uiOptions?.showWalletUIs\n                    })) return i.current = !0, await r.sendTransaction(e).finally(()=>i.current = !1);\n                    let n = [];\n                    \"calls\" in e && void 0 !== e.calls ? n = [\n                        ...e.calls\n                    ] : \"to\" in e && (n = [\n                        {\n                            to: e.to,\n                            value: e.value || BigInt(0),\n                            data: e.data || \"0x\"\n                        }\n                    ]);\n                    let a = async ()=>{\n                        let { paymasterAndData: t, paymasterData: a, maxFeePerGas: i, maxPriorityFeePerGas: s } = await r.prepareUserOperation({\n                            calls: n,\n                            maxFeePerGas: e.maxFeePerGas,\n                            maxPriorityFeePerGas: e.maxPriorityFeePerGas,\n                            nonce: e.nonce ? BigInt(e.nonce) : void 0\n                        });\n                        return 0 === Number(i) && 0 === Number(s) || Number(t ?? a ?? 0) > 0;\n                    };\n                    return new Promise(async (s, o)=>{\n                        i.current = !0;\n                        let { entropyId: l, entropyIdVerifier: c } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"a\"])(x);\n                        W({\n                            connectWallet: {\n                                recoveryMethod: b.recoveryMethod,\n                                connectingWalletAddress: b.address,\n                                isUnifiedWallet: D,\n                                entropyId: l,\n                                entropyIdVerifier: c,\n                                onCompleteNavigateTo: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"aJ\"],\n                                onFailure: ()=>{}\n                            },\n                            sendTransaction: {\n                                transactionRequests: B({\n                                    calls: n,\n                                    chain: r.chain,\n                                    maxPriorityFeePerGas: e.maxPriorityFeePerGas,\n                                    maxFeePerGas: e.maxFeePerGas,\n                                    nonce: e.nonce ? BigInt(e.nonce) : void 0\n                                }),\n                                transactingWalletIndex: 0,\n                                transactingWalletAddress: r.account.address,\n                                entropyId: l,\n                                entropyIdVerifier: c,\n                                getIsSponsored: a,\n                                signOnly: !1,\n                                onConfirm: ()=>r.sendTransaction(e),\n                                onSuccess: (e)=>s(e.hash),\n                                onFailure: o,\n                                uiOptions: t?.uiOptions ?? {}\n                            }\n                        }), P(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"aI\"]);\n                    }).finally(()=>{\n                        i.current = !1;\n                    });\n                }",
+  "signMessage": "async (e, t)=>{\n                    let r = T.current[C.current];\n                    if (!r) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$internal$2d$context$2d$pX7RZwl3$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"P\"](`Smart wallet client for chain (eip155:${C.current}) not found`);\n                    return v({\n                        showWalletUIs: t?.uiOptions?.showWalletUIs\n                    }) ? (i.current = !0, await r.signMessage(e).finally(()=>i.current = !1)) : new Promise(async (n, a)=>{\n                        let { entropyId: s, entropyIdVerifier: o } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"a\"])(x);\n                        i.current = !0, W({\n                            connectWallet: {\n                                recoveryMethod: b.recoveryMethod,\n                                connectingWalletAddress: b.address,\n                                isUnifiedWallet: D,\n                                entropyId: s,\n                                entropyIdVerifier: o,\n                                onCompleteNavigateTo: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"aH\"],\n                                onFailure: ()=>{}\n                            },\n                            signMessage: {\n                                method: \"personal_sign\",\n                                data: \"string\" == typeof e.message ? e.message : e.message.raw.toString(),\n                                confirmAndSign: ()=>r.signMessage(e),\n                                onSuccess: (e)=>n(e),\n                                onFailure: a,\n                                uiOptions: t?.uiOptions ?? {}\n                            }\n                        }), P(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"aI\"]);\n                    }).finally(()=>{\n                        i.current = !1;\n                    });\n                }",
+  "signTypedData": "async (e, t)=>{\n                    let r = T.current[C.current];\n                    if (!r) throw new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$internal$2d$context$2d$pX7RZwl3$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"P\"](`Smart wallet client for chain (eip155:${C.current}) not found`);\n                    return delete e.account, v({\n                        showWalletUIs: t?.uiOptions?.showWalletUIs\n                    }) ? (i.current = !0, await r.signTypedData(e).finally(()=>i.current = !1)) : new Promise(async (n, a)=>{\n                        i.current = !0;\n                        let { entropyId: s, entropyIdVerifier: o } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"a\"])(x);\n                        W({\n                            connectWallet: {\n                                recoveryMethod: b.recoveryMethod,\n                                connectingWalletAddress: b.address,\n                                isUnifiedWallet: D,\n                                entropyId: s,\n                                entropyIdVerifier: o,\n                                onCompleteNavigateTo: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"aH\"],\n                                onFailure: ()=>{}\n                            },\n                            signMessage: {\n                                method: \"eth_signTypedData_v4\",\n                                data: e,\n                                confirmAndSign: ()=>r.signTypedData(e),\n                                onSuccess: (e)=>n(e),\n                                onFailure: a,\n                                uiOptions: t?.uiOptions ?? {}\n                            }\n                        }), P(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$privy$2d$io$2b$react$2d$auth$40$2$2e$14$2e$2_2a87a19979731c7227225bd5ef82a81c$2f$node_modules$2f40$privy$2d$io$2f$react$2d$auth$2f$dist$2f$esm$2f$privy$2d$provider$2d$B_tc$2d$pgO$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"aI\"]);\n                    }).finally(()=>{\n                        i.current = !1;\n                    });\n                }",
+  "writeContract": "(args)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$permissionless$40$0$2e$2$2e$47_ox$40$0$2e$_ab65b1926ead41a5101a89c476824219$2f$node_modules$2f$permissionless$2f$_esm$2f$actions$2f$smartAccount$2f$writeContract$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[\"writeContract\"])(client, args)",
+  "switchChain": "async ({ id: e })=>{\n        if (!T.current[e]) {\n            let t = await $({\n                chain: G.find((t)=>t.id === e),\n                account: b,\n                signer: await A?.getEthereumProvider(),\n                user: x,\n                paymasterContext: n?.paymasterContext,\n                smartWalletsConfig: a,\n                rpcConfig: F.rpcConfig,\n                privyAppId: I\n            });\n            t && (T.current[e] = t);\n        }\n        U(e);\n    }"
+}

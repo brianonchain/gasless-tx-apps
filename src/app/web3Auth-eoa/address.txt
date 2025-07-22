@@ -1,0 +1,2 @@
+// embedded EOA address
+0x066A13226dfd67af1782Ef13Ef400f2B629e8Cc3

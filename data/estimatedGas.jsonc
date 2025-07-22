@@ -1,0 +1,7 @@
+{
+  "callGasLimit": "58237n",
+  "preVerificationGas": "62915n",
+  "verificationGasLimit": "68825n",
+  "paymasterPostOpGasLimit": "106934n",
+  "paymasterVerificationGasLimit": "45954n"
+}

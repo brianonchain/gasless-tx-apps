@@ -1,0 +1,57 @@
+/*--- text sizes ---*/
+
+@utility textSmHome {
+  @apply text-sm leading-[1.6];
+}
+
+@utility textBaseHome {
+  @apply text-base leading-[1.6];
+}
+
+@utility textLgHome {
+  @apply text-lg leading-[1.6];
+}
+
+@utility textHeaderHome {
+  @apply text-[2.75rem] leading-[3.5rem] xs:text-[3rem] xs:leading-[3.5rem] min-[1150px]:text-[3.5rem] min-[1150px]:leading-[4.25rem] font-semibold;
+}
+
+@utility textXsAppPx {
+  @apply text-[14px] portrait:sm:text-[16px] landscape:lg:text-[16px] desktop:text-[12px]!;
+}
+
+@utility textSmApp {
+  @apply text-base portrait:sm:text-lg landscape:lg:text-lg desktop:text-sm!;
+}
+
+@utility textSmAppPx {
+  @apply text-[16px] portrait:sm:text-[18px] landscape:lg:text-[18px] desktop:text-[14px]!;
+}
+
+@utility textBaseApp {
+  @apply text-lg portrait:sm:text-xl landscape:lg:text-xl desktop:text-base!;
+}
+
+@utility textBaseAppPx {
+  @apply text-[18px] portrait:sm:text-[20px] landscape:lg:text-[20px] desktop:text-[16px]!;
+}
+
+@utility textLgApp {
+  @apply text-xl portrait:sm:text-[1.375rem] landscape:lg:text-[1.375rem] desktop:text-lg!;
+}
+
+@utility textLgAppPx {
+  @apply text-[20px] portrait:sm:text-[22px] landscape:lg:text-[22px] desktop:text-[18px]!;
+}
+
+@utility textXlApp {
+  @apply text-2xl portrait:sm:text-[1.65rem] landscape:lg:text-[1.65rem] desktop:text-xl!;
+}
+
+@utility text2XlApp {
+  @apply text-3xl portrait:sm:text-3xl landscape:lg:text-3xl desktop:text-2xl!;
+}
+
+@utility text2XlAppPx {
+  @apply text-[30px] portrait:sm:text-[30px] landscape:lg:text-[30px] desktop:text-[24px]!;
+}

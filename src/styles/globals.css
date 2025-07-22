@@ -1,0 +1,280 @@
+@import "tailwindcss";
+@import "./buttons.css";
+@import "./inputs.css";
+@import "./texts.css";
+@import "./modals.css";
+@import "./app.css";
+@import "./login.css";
+
+@custom-variant hover {
+  &:hover {
+    @slot;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@custom-variant desktop {
+  @media (hover: hover) and (pointer: fine) {
+    @slot;
+  }
+}
+
+@theme {
+  --color-light1: #f9f9f9;
+  --color-light2: #eef3f7;
+  --color-light3: #e2e8f0;
+  --color-light4: #cbd5e1;
+  --color-light5: #b0bdcd;
+  --color-lightText1: #212427;
+  --color-lightButton: #009fd1;
+  --color-lightButtonHover: #008fbc;
+  --color-dark1: #000000;
+  --color-dark2: #111114;
+  --color-dark3: #1a1a1f;
+  --color-dark4: #222127;
+  --color-dark5: #2e2d35;
+  --color-dark6: #35343b;
+  --color-darkText1: #e2e8f0;
+  --color-darkButton: #5370a7;
+  --color-darkButtonHover: #6983b2;
+  --color-slate-250: #d5dde7;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 750px;
+  --breakpoint-lg: 980px;
+  --breakpoint-xl: 1250px;
+}
+
+@layer base {
+  h1 {
+    @apply text-center text-3xl font-bold;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+.pageWidth {
+  @apply px-3 xs:px-6 lg:px-8 w-full max-w-[calc(650px+8rem)];
+}
+
+.whiteCard {
+  @apply w-full px-3 py-2 portrait:sm:px-6 portrait:sm:py-4 landscape:lg:px-6 landscape:lg:py-4 desktop:px-6 desktop:py-4 flex flex-col items-center lg:flex-row gap-2 portrait:sm:gap-6 landscape:lg:gap-6 desktop:gap-4 bg-white rounded-xl shadow-[0px_1px_16px_0px_rgba(30,50,130,0.15)];
+}
+
+.whiteCard2 {
+  @apply w-full p-3 desktop:p-4 bg-white rounded-xl shadow-[0px_1px_16px_0px_rgba(30,50,130,0.15)] space-y-2;
+}
+
+.chip {
+  @apply px-2 py-1 mr-1 textSmApp font-medium bg-slate-200 text-slate-600 rounded-md;
+}
+
+.footerHeader {
+  @apply underline underline-offset-2;
+}
+
+.footerLink {
+  @apply desktop:hover:text-blue-400 active:text-blue-400 cursor-pointer;
+}
+
+/* --- tooltips --- */
+
+.tooltip {
+  @apply invisible group-hover:visible absolute px-[16px] py-[12px] rounded-lg desktop:px-[12px] desktop:py-[8px] bg-slate-800 text-white border-slate-500 border z-1;
+}
+
+/* other utilities */
+
+@utility skeleton {
+  @apply text-transparent! bg-slate-300 dark:bg-dark5 animate-pulse rounded-md;
+}
+
+@utility textGray {
+  @apply text-slate-500 dark:text-slate-500;
+}
+
+@utility textGrayer {
+  @apply text-slate-400 dark:text-gray-700;
+}
+
+@utility dotted {
+  @apply underline underline-offset-[3px] decoration-dotted decoration-blue-600 text-blue-600 dark:decoration-blue-400 dark:text-blue-400 cursor-pointer;
+}
+
+@utility dottedLight {
+  @apply underline underline-offset-[3px] decoration-dotted decoration-blue-600 text-blue-600 cursor-pointer;
+}
+
+@utility dottedDark {
+  @apply underline underline-offset-[3px] decoration-dotted decoration-blue-400 text-blue-400 cursor-pointer;
+}
+
+@utility link {
+  @apply cursor-pointer text-blue-600 dark:text-blue-400 desktop:hover:underline active:underline focus:underline;
+}
+
+@utility linkLight {
+  @apply cursor-pointer text-blue-600 desktop:hover:underline active:underline focus:underline;
+}
+
+@utility linkDark {
+  @apply cursor-pointer text-blue-400 xs:hover:underline active:underline;
+}
+
+@utility loginError {
+  @apply absolute top-[calc(100%+3px)] text-red-500 textSmApp leading-[1.1]!;
+}
+
+@utility caretDown {
+  @apply w-[18px] h-[18px] desktop:w-[16px] desktop:h-[16px];
+}
+
+/* input modifications */
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dark input[type="checkbox"]:checked {
+  background-color: "#5370A7";
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* autotfill */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important;
+}
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active,
+.dark select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
+}
+
+@utility selectNoArrow {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  border-radius: none;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+/* scrollbar */
+
+@utility thinScroll {
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 20px;
+    border: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 9px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.halfHideScrollbar::-webkit-scrollbar-thumb {
+  background: #eef3f7;
+  border: 0px;
+}
+.halfHideScrollbar::-webkit-scrollbar-track {
+  background: #eef3f7;
+}
+.halfHideScrollbar::-webkit-scrollbar {
+  width: 17px;
+  height: 20px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #e0cbcb;
+  border-radius: 100vh;
+  border: 0px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 20px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #f7f4ed;
+}
+
+.dark .scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #35343b;
+}
+
+.dark .scrollbar::-webkit-scrollbar-thumb {
+  background: #6a6d73;
+  border-radius: 100vh;
+  border: 0px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c0a0b9;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* animated underline */
+
+.underlineAni::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #212427;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.underlineAni:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@utility filterGray {
+  filter: invert(40%) sepia(40%) saturate(235%) hue-rotate(175deg) brightness(102%) contrast(94%);
+}
+
+@utility filterWhite {
+  filter: invert(87%) sepia(22%) saturate(113%) hue-rotate(185deg) brightness(106%) contrast(88%);
+}
+
+@utility filterBlack {
+  filter: invert(6%) sepia(2%) saturate(4969%) hue-rotate(169deg) brightness(95%) contrast(81%);
+}

@@ -1,0 +1,18 @@
+{
+  "jsonrpc": "2.0",
+  "id": 6,
+  "result": {
+    "slow": {
+      "maxFeePerGas": "0xf99ee",
+      "maxPriorityFeePerGas": "0xf4240"
+    },
+    "standard": {
+      "maxFeePerGas": "0x1061a0",
+      "maxPriorityFeePerGas": "0x100590"
+    },
+    "fast": {
+      "maxFeePerGas": "0x112952",
+      "maxPriorityFeePerGas": "0x10c8e0"
+    }
+  }
+}

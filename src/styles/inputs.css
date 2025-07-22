@@ -1,0 +1,61 @@
+/* --- input colors --- */
+
+@utility appInputHeight {
+  @apply h-[54px] portrait:sm:h-[58px] landscape:lg:h-[58px] desktop:h-[46px]!;
+}
+
+@utility inputColor {
+  @apply rounded-[8px] border-[1.5px] bg-white dark:bg-dark1 text-lightText1 dark:text-darkText1 border-slate-300 dark:border-dark5 focus:border-blue-500 dark:focus:border-slate-600 focus:ring-0 outline-hidden placeholderStyle transition-all duration-[500ms];
+}
+
+@utility inputColorLight {
+  @apply rounded-[8px] border-[1.5px] bg-white text-lightText1 border-slate-300 focus:border-blue-500 focus:ring-0 outline-hidden placeholderStyle transition-all duration-[500ms];
+}
+
+@utility settingsInputColor {
+  @apply rounded-[8px] border-[1.5px] bg-transparent focus:bg-white dark:focus:bg-dark1 text-lightText1 dark:text-darkText1 focus:text-lightText1! dark:focus:text-darkText1! border-transparent focus:border-blue-500 dark:focus:border-slate-600 focus:ring-0 outline-hidden placeholderStyle transition-all duration-[500ms] desktop:group-hover:text-slate-500;
+}
+
+@utility checkboxColor {
+  @apply rounded-[8px] border-[1.5px] bg-light1 dark:bg-dark1 border-slate-300 dark:border-dark5 checked:bg-lightButton dark:checked:bg-darkButton checked:border-none focus:border-blue-500 dark:focus:border-slate-600 focus:ring-0 focus:ring-offset-0;
+}
+
+@utility textInputAppLg {
+  @apply text-[20px] portrait:sm:text-[24px] landscape:lg:text-[24px] desktop:text-[16px]!;
+}
+
+@utility placeholderStyle {
+  @apply placeholder:italic placeholder:text-slate-400 dark:placeholder:text-zinc-700 focus:placeholder:text-transparent;
+}
+
+/* --- app input --- */
+
+.appInput {
+  @apply textBaseApp appInputHeight inputColor px-[0.7em];
+}
+
+.appInputPx {
+  @apply textBaseAppPx appInputHeight inputColor px-[0.7em];
+}
+
+.appInputLightPx {
+  @apply textBaseAppPx appInputHeight inputColorLight px-[0.7em];
+}
+
+.appInputSmPx {
+  @apply textSmAppPx appInputHeight inputColor px-[0.7em];
+}
+
+.appInputSmLightPx {
+  @apply textSmAppPx appInputHeight inputColorLight px-[0.7em];
+}
+
+.appInputLabel {
+  @apply pb-[4px] font-medium;
+}
+
+/* --- input elements --- */
+
+.checkbox {
+  @apply w-[36px] h-[36px] desktop:w-[28px] desktop:h-[28px] checkboxColor cursor-pointer;
+}

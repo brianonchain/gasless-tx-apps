@@ -1,0 +1,180 @@
+/* modal base & color */
+
+@utility modalBase {
+  @apply fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] flex flex-col items-center z-[11] rounded-[20px];
+}
+
+@utility modalFullBase {
+  @apply flex flex-col items-center fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] z-[11] portrait:sm:rounded-[16px] landscape:lg:rounded-[16px] desktop:rounded-[16px]!;
+}
+
+@utility sidebarModalBase {
+  @apply fixed left-0 top-0 flex flex-col items-center z-20;
+}
+
+@utility modalColor {
+  @apply bg-light1 dark:bg-dark2 border-[1.5px] border-light5 dark:border-dark4;
+}
+
+@utility modalFullColor {
+  @apply bg-light1 dark:bg-dark1 portrait:sm:dark:bg-dark2 landscape:lg:dark:bg-dark2 desktop:dark:bg-dark2! portrait:sm:border landscape:lg:border desktop:border border-light5 dark:border-dark6;
+}
+
+@utility sidebarModalColor {
+  @apply bg-linear-to-br from-light1 to-light3 dark:from-dark1 dark:to-dark3 portrait:sm:border-r-2 landscape:border-r border-light4 dark:border-dark4;
+}
+
+/* modal sizes (smallest to largest) */
+
+@utility errorModalSize {
+  @apply w-[90%] portrait:sm:max-w-[500px] landscape:lg:max-w-[500px] desktop:max-w-[360px]! min-h-[400px] max-h-[90%];
+}
+
+@utility cashoutIntroModalSize {
+  @apply w-[93%] portrait:sm:w-[500px] landscape:lg:w-[500px] desktop:w-[420px]! h-[620px] portrait:sm:h-[680px] landscape:lg:h-[680px] desktop:h-[620px]! max-h-[90%];
+}
+
+@utility modalFullSizeDynamic {
+  @apply w-full portrait:sm:w-[600px] landscape:lg:w-[600px] desktop:w-[600px]! h-screen portrait:sm:h-auto landscape:lg:h-auto portrait:sm:max-h-[90%] landscape:lg:max-h-[90%] desktop:max-h-[90%]!;
+}
+
+@utility modalFullSize {
+  @apply w-full portrait:sm:w-[600px] landscape:lg:w-[600px] desktop:w-[480px]! h-screen portrait:sm:h-[90%] landscape:lg:h-[90%] desktop:h-[90%]! portrait:sm:max-h-[750px] landscape:lg:max-h-[750px];
+}
+
+@utility passwordModalSize {
+  @apply w-full portrait:sm:w-[600px] landscape:lg:w-[600px] desktop:w-[420px]! h-screen portrait:sm:h-[90%] landscape:lg:h-[90%] desktop:h-[90%]! portrait:sm:max-h-[750px] landscape:lg:max-h-[750px];
+}
+
+@utility transferModalSize {
+  @apply w-full portrait:sm:w-[450px] landscape:lg:w-[450px] desktop:w-[420px]! h-screen portrait:sm:h-[90%] landscape:lg:h-[90%] desktop:h-[90%]! portrait:sm:max-h-[700px] landscape:lg:max-h-[700px] desktop:max-h-[650px]!;
+}
+
+@utility sidebarModalSize {
+  @apply w-full portrait:sm:w-[490px] landscape:lg:w-[490px] desktop:w-[400px]! h-screen;
+}
+
+/* specific modals */
+
+.errorModal {
+  @apply modalBase modalColor errorModalSize pt-[32px] pb-[44px];
+}
+
+.errorModalLight {
+  @apply modalBase bg-light1 border-light5 errorModalSize py-[40px];
+}
+
+.infoModal {
+  @apply modalFullBase modalFullColor modalFullSizeDynamic pb-[32px];
+}
+
+.cashoutIntroModal {
+  @apply modalBase modalColor cashoutIntroModalSize modalYpadding;
+}
+
+.fullModal {
+  @apply modalFullBase modalFullColor modalFullSize pb-[32px];
+}
+
+.transferModal {
+  @apply modalFullBase modalFullColor transferModalSize pb-[12px];
+}
+
+.sidebarModal {
+  @apply sidebarModalBase sidebarModalColor sidebarModalSize;
+}
+
+.cbIntroModal {
+  @apply modalBase modalColor cbIntroModalSize modalYpadding;
+}
+
+@utility cbIntroModalSize {
+  @apply w-[93%] portrait:sm:w-[450px] landscape:lg:w-[450px] desktop:w-[350px]! max-h-[90%];
+}
+
+/* modal content container */
+.errorModalContentContainer {
+  @apply grow px-[24px] desktop:px-[32px] w-full flex flex-col items-center overflow-y-auto;
+}
+
+.fullModalContentContainer {
+  @apply w-full h-full flex justify-center overflow-y-auto;
+}
+
+.fullModalContentContainer2 {
+  @apply w-full px-[16px] portrait:sm:px-[32px] landscape:lg:px-[32px] flex flex-col; /* must define max-w in each individual modal */
+}
+/* modal styling */
+@utility modalYpadding {
+  @apply py-[24px] portrait:sm:py-[32px] landscape:lg:py-[32px] desktop:py-[24px]!;
+}
+
+@utility modalXpadding {
+  @apply px-[12px] portrait:sm:px-[40px] landscape:lg:px-[40px] desktop:px-[32px]!;
+}
+
+@utility modalXpaddingLg {
+  @apply px-[16px] portrait:sm:px-[40px] landscape:lg:px-[40px] desktop:px-[32px]!;
+}
+
+@utility modalHeaderFont {
+  @apply text-center text-2xl desktop:text-xl font-semibold;
+}
+
+.modalHeader {
+  @apply modalHeaderFont w-[290px] portrait:sm:w-[240px] landscape:lg:w-[240px] desktop:w-[280px]! py-[24px] desktop:py-[20px]!;
+}
+
+.fullModalHeader {
+  @apply modalHeaderFont w-[calc(100%-130px)] py-[24px];
+}
+
+@utility transferSuccessModalHeaderContainer {
+  @apply flex-none mt-4 portrait:sm:mt-8 landscape:lg:mt-8 w-full h-[50px] desktop:h-[60px]! relative;
+}
+
+@utility modalNumber {
+  @apply mr-2 md:mr-3;
+}
+
+@utility modalBlackout {
+  @apply opacity-[70%] dark:opacity-[88%] fixed inset-0 bg-black backdrop-blur-xl z-10;
+}
+
+@utility modalButtonWidth {
+  @apply w-[300px];
+}
+
+/* modal button container */
+
+@utility qrCodeModalIconContainer {
+  @apply absolute w-[60px] h-[60px] rounded-full portrait:sm:border-2 landscape:lg:border-2 border-white flex items-center justify-center cursor-pointer desktop:hover:opacity-80 active:opacity-80;
+}
+
+@utility sidebarModalContentContainer {
+  @apply w-full pt-[16px] px-[24px] portrait:sm:px-[40px] landscape:lg:px-[40px] flex flex-col items-center overflow-y-auto;
+}
+
+@utility searchModalCategoryContainer {
+  @apply flex-none w-full h-[100px] desktop:h-[80px] flex items-center justify-between border-b border-slate-300 dark:border-dark3;
+}
+
+@utility modalButtonContainer {
+  @apply w-full flex flex-col items-center pt-[36px] pb-[20px] gap-[24px];
+}
+
+@utility xButtonContainer {
+  @apply absolute right-0 top-0 w-[64px] h-[64px] desktop:w-[52px] desktop:h-[52px] hidden portrait:sm:flex landscape:lg:flex desktop:flex! items-center justify-center rounded-bl-[14px] rounded-tr-[14px] cursor-pointer desktop:hover:bg-light3 desktop:dark:hover:bg-dark5 active:bg-light3 dark:active:bg-dark5;
+}
+
+@utility xButtonContainerNotHidden {
+  @apply absolute right-3 portrait:sm:right-6 landscape:lg:right-6 top-[-8px] w-[52px] h-[52px] desktop:w-[44px] desktop:h-[44px] flex items-center justify-center rounded-full cursor-pointer portrait:sm:border-[1.5px] landscape:lg:border-[1.5px] border-slate-500 desktop:hover:bg-light3 desktop:dark:hover:bg-dark4;
+}
+
+@utility xButton {
+  @apply text-[32px] font-medium desktop:text-[24px] text-lightText1 dark:text-darkText1;
+}
+
+@utility mobileBack {
+  @apply absolute left-[12px] top-[18px] leading-none text-[42px] font-medium p-[8px] portrait:sm:hidden landscape:lg:hidden desktop:hidden!;
+}
