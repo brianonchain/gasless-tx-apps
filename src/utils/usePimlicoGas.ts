@@ -27,9 +27,9 @@ export default function usePimlicoGas(web3Auth: Web3Auth | null, wagmiStatus: "c
     console.log("calculating gas...");
     const isDeployed = await web3Auth?.accountAbstractionProvider?.smartAccount?.isDeployed();
     if (!isDeployed) setEstimatedGasFee("Cannot estimate for 1st txn");
-    if (!gasPrice || !rate || !isDeployed) return;
+    if (!gasPrice || !rate || !isDeployed || !web3Auth?.accountAbstractionProvider?.bundlerClient) return;
 
-    const bundlerClient = web3Auth?.accountAbstractionProvider?.bundlerClient!;
+    const bundlerClient = web3Auth.accountAbstractionProvider.bundlerClient;
 
     const calls: Call[] = [
       {

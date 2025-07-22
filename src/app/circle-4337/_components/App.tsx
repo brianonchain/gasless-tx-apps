@@ -21,8 +21,8 @@ const owner = privateKeyToAccount(process.env.NEXT_PUBLIC_PRIVATE_KEY! as Hex);
 
 export default function App() {
   // states
-  const [smartAccount, setSmartAccount] = useState<ToCircleSmartAccountReturnType | null>(null);
-  const [chain, setChain] = useState<Chain | null>(base);
+  const [smartAccount, setSmartAccount] = useState<ToCircleSmartAccountReturnType | undefined>(null);
+  const [chain, setChain] = useState<Chain | undefined>(base);
   // hooks
   const { usdcBalance } = useUsdcBalanceQuery({ accountAddress: smartAccount?.address, chain });
 
