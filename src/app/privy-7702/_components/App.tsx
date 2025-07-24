@@ -173,7 +173,10 @@ export default function App() {
         <div className="whiteCard2">
           <div>
             <p className="text-xl font-bold">Send USDC</p>
-            <p className="">Send USDC to another address with gas paid by USDC in the embedded EOA. You will have to first send some USDC to this account first.</p>
+            <p className="">
+              Send USDC to another address with gas paid by USDC in the embedded EOA. You will have to first send some USDC to this account first. If using testnet, get USDC from
+              Circle's faucet.
+            </p>
           </div>
           {/*--- inputs ---*/}
           <div className="space-y-2">
